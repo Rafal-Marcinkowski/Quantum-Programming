@@ -1,0 +1,37 @@
+using System;
+
+namespace SPOJ_Przedszkolanka
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int N = int.Parse(Console.ReadLine());
+            for (int i = 0; i < N; i++)
+            {
+                string[] tab = Console.ReadLine().Split(' ');
+                int a, b;
+                a = int.Parse(tab[0]);
+                b = int.Parse(tab[1]);
+                int x, y,z;
+                if (b > a)
+                {
+                    x = b;
+                    y = a;
+                    z = b;
+                }
+                else
+                {
+                    x = a;
+                    y = b;
+                    z = a;
+                }
+                while (z % y != 0 || z % x != 0)
+                {
+                    z += x;
+                }
+                Console.WriteLine(z);
+            }
+        }
+    }
+}

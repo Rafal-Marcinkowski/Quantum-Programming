@@ -1,0 +1,41 @@
+using System;
+
+namespace Flamaster
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            int C;
+            C = int.Parse(Console.ReadLine());
+            for (int i = 0; i < C; i++)
+            {
+                string word = Console.ReadLine();
+                int j = 0;
+                int ile = 1;
+                string word2 = "";
+                while (j < word.Length)
+                {
+                    ile = 1;
+                    char znak = word[j];
+                    j++;
+                    for (; j < word.Length && word[j] == znak; j++)
+                    {
+                        ile++;
+                    }
+                    if (ile == 1)
+                        word2 += znak;
+                    else if (ile == 2)
+                        word2 = word2 + znak + znak;
+                    else
+                        word2 = word2 + znak + ile.ToString();
+
+
+                }
+                Console.WriteLine(word2);
+
+            }
+        }
+    }
+}

@@ -1,0 +1,23 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int t,n,suma=0;
+    cin>>t;
+    int*wsk;
+    for(int i=0;i<t;i++)
+    {
+        cin>>n;
+        wsk=new int[n];
+        for(int j=0;j<n;j++)
+        {
+           cin>>wsk[j];
+           suma+=wsk[j];
+        }
+        cout<<suma<<endl;
+        suma=0;
+    }
+    return 0;
+}

@@ -1,0 +1,60 @@
+using System;
+
+namespace SPOJ_Spacje
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string napis;
+            while ((napis = Console.ReadLine()) != null)
+            {
+                string[] tab = napis.Split(' ');
+                for (long i = 0; i < tab.Length; i++)
+                {
+                    string n = tab[i];  ///Pierwszy wyraz z tablicy stringów.
+                    if (n != "")   ///Sprawdzamy czy wyraz nie zawiera samej spacji.
+                    {
+                        if (n.Length > 1)
+                        {
+                            string m;
+                            if (i != 0)
+                            {
+                                m = n[0].ToString().ToUpper(); ///Pierwsza litera wyrazu.
+                            }
+                            else
+                            {
+                                m = n[0].ToString();
+                            }
+                            string resztaZWyrazu = n.Substring(1); ///Reszta liter z wyrazu.
+                            string wynik = "";
+                            bool czyBylaKropkaLubPrzecinek = false;
+                            for (int j = 0; j < resztaZWyrazu.Length; j++)
+                            {
+                                if (j == resztaZWyrazu.Length)
+                                    break;
+                                if (czyBylaKropkaLubPrzecinek == true)
+                                {
+                                    wynik += resztaZWyrazu[j].ToString().ToUpper();
+                                    czyBylaKropkaLubPrzecinek = false;
+                                }
+                                else
+                                {
+                                    if (resztaZWyrazu[j] == '.' || resztaZWyrazu[j] == ',')
+                                    {
+                                        czyBylaKropkaLubPrzecinek = true;
+                                    }
+                                    wynik += resztaZWyrazu[j];
+                                }
+                            }
+                            Console.Write(m + wynik);
+                        }
+                        else
+                            Console.Write(n.ToUpper());
+                    }
+                }
+                Console.WriteLine();
+            }
+        }
+    }
+}

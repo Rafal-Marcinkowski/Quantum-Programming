@@ -1,0 +1,32 @@
+using System;
+
+namespace SPOJ_ReprezentacjaLiczbTypuFloat
+{
+    class Program
+    {
+        public static string Funkcja(float n)
+        {
+           return BitConverter.ToString(BitConverter.GetBytes(n));
+        }
+        static void Main(string[] args)
+        {
+            int t = int.Parse(Console.ReadLine());
+            for (int i = 0; i < t; i++)
+            {
+                string napis = Funkcja(float.Parse(Console.ReadLine()));
+                string[]tab = napis.Split('-');
+                string wynik = "";
+                for (int j = tab.Length-1; j >=0; j--)
+                {
+                    if (tab[j][0] == '0')
+                        wynik += tab[j][1];
+                    else
+                        wynik += tab[j];
+                    if (j > 0)
+                        wynik +=" ";
+                }
+                Console.WriteLine(wynik.ToLower());
+            }
+        }
+    }
+}

@@ -1,0 +1,27 @@
+using System;
+
+namespace SPOJ_TEST3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int ile = 0;
+            int pamiec = 0;
+            while(ile<3)
+            {
+                int a = int.Parse(Console.ReadLine());
+                Console.WriteLine(a);
+                if (a!=42)
+                {
+                    pamiec=1;
+                }
+                else if(a==42&&pamiec==1)
+                {
+                    ile++;
+                    pamiec = 0;
+                }     
+            }
+        }
+    }
+}

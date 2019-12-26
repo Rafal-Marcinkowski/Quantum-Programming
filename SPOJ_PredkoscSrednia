@@ -1,0 +1,20 @@
+using System;
+
+namespace SPOJ_PredkoscSrednia
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int t = int.Parse(Console.ReadLine());
+            for (int i = 0; i < t; i++)
+            {
+                string[] Vstring = Console.ReadLine().Split(' '); ///Tworzymy tablicę stringów.
+                int[] tab = new int[2];
+                tab[0] = int.Parse(Vstring[0]);
+                tab[1] = int.Parse(Vstring[1]);
+                Console.WriteLine((2 * tab[0] * tab[1]) / (tab[0] + tab[1])); ///Prędkość średnia z dwóch liczb.
+            }
+        }
+    }
+}

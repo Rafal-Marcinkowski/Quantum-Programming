@@ -1,0 +1,17 @@
+using System;
+
+namespace SPOJ_NowaDziałka
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int D = int.Parse(Console.ReadLine());
+            for (int i = 0; i < D; i++)
+            {
+                int X = int.Parse(Console.ReadLine());
+                Console.WriteLine(X * X);
+            }
+        }
+    }
+}

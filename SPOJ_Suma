@@ -1,0 +1,17 @@
+using System;
+
+namespace SPOJ_Suma
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string napis;
+            int wynik = 0;
+            while((napis=Console.ReadLine())!=null)       ///Dopóki wczytujemy cokolwiek z konsoli.
+            {
+                Console.WriteLine(wynik+=int.Parse(napis)); ///Na bieżaco konwertujemy ze stringa na int i dodajemy do wyniku.
+            }
+        }
+    }
+}

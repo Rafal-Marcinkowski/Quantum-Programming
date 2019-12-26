@@ -1,0 +1,33 @@
+using System;
+
+namespace SPOJ_ProblemCollatza
+{
+    class Program
+    {
+        public static int Function(int s, int n)
+        {
+            if (s == 1)
+                return n;
+            else
+            {
+                if (s % 2 != 0)
+                {
+                    return Function(3 * s + 1, ++n);       ///Funkcja rekurencyjna z preinkrementacją zmiennej n, aby móc odpowiedzieć za którym razem xn=1;
+                }
+                else
+                {
+                    return Function(s / 2, ++n);
+                }
+            }
+        }
+        static void Main(string[] args)
+        {
+            int t = int.Parse(Console.ReadLine());
+            for (int i = 0; i < t; i++)
+            {
+                int s = int.Parse(Console.ReadLine());
+                Console.WriteLine(Function(s, 0));
+            }
+        }
+    }
+}

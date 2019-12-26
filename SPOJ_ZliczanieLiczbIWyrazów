@@ -1,0 +1,35 @@
+using System;
+
+namespace SPOJ_ZliczanieLiczbIWyrazów
+{
+    class Program
+    {
+        private static bool czyLiczba(string v)
+        {
+            for (int i = 0; i < v.Length; i++)     ///Funkcja sprawdzająca czy dany znak jest liczbą.
+            {
+                char a = v[i];
+                if (Char.IsDigit(a))
+                    return true;
+            }
+            return false;
+        }
+        static void Main(string[] args)
+        {
+            string napis;
+            while ((napis = Console.ReadLine()) != null)
+            {
+                int ileLiczb = 0, ileWyrazow = 0;
+                string[] tab = napis.Split(' ');
+                for (int i = 0; i < tab.Length; i++)
+                {
+                    if (czyLiczba(tab[i]))
+                        ileLiczb++;
+                    else
+                        ileWyrazow++;
+                }
+                Console.WriteLine(ileLiczb + " " + ileWyrazow);
+            }
+        }
+    }
+}

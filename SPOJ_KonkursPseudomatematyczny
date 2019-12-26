@@ -1,0 +1,42 @@
+using System;
+
+namespace SPOJ_KonkursPseudomatematyczny
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int D = int.Parse(Console.ReadLine());
+            for (int i = 0; i < D; i++)
+            {
+                int N = int.Parse(Console.ReadLine());
+                string[] liczby = Console.ReadLine().Split(' ');
+                int[] liczby2 = new int[N];
+                for (int j = 0; j < N; j++)
+                {
+                    liczby2[j] = int.Parse(liczby[j]);
+                }
+                Array.Sort(liczby2);
+                Array.Reverse(liczby2);
+                int maksymalnywynik = liczby2[0];
+                int index = 0;
+                foreach (int item in liczby2)
+                {
+                    if (item == maksymalnywynik)
+                    {
+                        Console.Write(item + " ");
+                        index++;
+                    }
+                    else
+                        break;
+                }
+                Array.Reverse(liczby2);
+                for (int j = 0; j < N - index; j++)
+                {
+                    Console.Write(liczby2[j] + " ");
+                }
+                Console.WriteLine();
+            }
+        }
+    }
+}

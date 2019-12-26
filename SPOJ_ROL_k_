@@ -1,0 +1,39 @@
+using System;
+
+namespace SPOJ_ROL_k_
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string[] liczby = Console.ReadLine().Split(' ');
+            int n = int.Parse(liczby[0]);
+            int k = int.Parse(liczby[1]);
+            string[] tablica = Console.ReadLine().Split(' ');
+            int[] tab = new int[n];
+            for (int i = 0; i < n; i++)
+            {
+                tab[i] = int.Parse(tablica[i]);
+            }
+            for (int i = 0; i < k; i++)     ///Przesuwamy indeksy w lewo tyle razy, ile wynosi wartość zmiennej k.
+            {
+                int[] tab2 = new int[n];
+                for (int j = 0; j < n; j++)     ///Pętla przesuwa wartości w tablicy o 1 indeks w lewo.
+                {
+                    if (j + 1 < n)
+                    {
+                        tab2[j] = tab[j + 1];
+                    }
+                    else
+                        tab2[j] = tab[0];
+                }
+                tab = tab2;
+            }
+            for (int i = 0; i < n; i++)
+            {
+                Console.Write(tab[i] + " ");
+            }
+            Console.WriteLine();
+        }
+    }
+}

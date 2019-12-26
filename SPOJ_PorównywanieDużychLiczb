@@ -1,0 +1,98 @@
+using System;
+
+namespace SPOJ_PorównywanieDużychLiczb
+{
+    class Program
+    {
+        private static bool CzyRowne(string a, string b)    ///Funkcja sprawdzająca czy a i b są sobie równe.
+        {
+            if (a.Length != b.Length)
+                return false;
+            else
+            {
+                for (int i = 0; i < a.Length; i++)
+                {
+                    int znak1 = a[i];
+                    int znak2 = b[i];
+                    if (znak1 == znak2)
+                        continue;
+                    else
+                        return false;
+                }
+                return true;
+            }
+        }
+        private static bool CzyWieksza(string a, string b)    ///Funkcja sprawdzająca czy a jest większe od b.
+        {
+            if (a.Length > b.Length)
+                return true;
+            if (a.Length == b.Length)
+            {
+                for (int i = 0; i < a.Length; i++)
+                {
+                    int znak1 = a[i];
+                    int znak2 = b[i];
+                    if (znak1 > znak2)
+                        return true;
+                    if (znak1 == znak2)
+                        continue;
+                    else
+                        return false;
+                }
+                return false;
+            }
+            else
+                return false;
+        }
+        private static int Relacja(string napis)      ///Funkcja "Relacja" zwróci 1 lub 0 w zależności od wyniku działania funkcji CzyRowne(a,b)|| CzyWieksza(a,b)
+        {
+            string[] tab = napis.Split(' ');
+            string a = tab[0];
+            string b = tab[2];
+            switch (tab[1])                           ///Przełącznik przełącza w zależności od operatora logicznego.
+            {
+                case "==":
+                    {
+                        if (CzyRowne(a, b))
+                            return 1;
+                        else
+                            return 0;
+                    }
+                case "!=":
+                    {
+                        if (CzyRowne(a, b))
+                            return 0;
+                        else
+                            return 1;
+
+                    }
+                case ">=":
+                    {
+                        if (CzyWieksza(a, b))
+                            return 1;
+                        else
+                            return 0;
+                    }
+                case "<=":
+                    {
+                        if (CzyWieksza(a, b))
+                            return 0;
+                        else
+                            return 1;
+                    }
+                default:
+                    return 0;
+            }
+        }
+
+        static void Main(string[] args)
+        {
+            string napis;
+            while ((napis = Console.ReadLine()) != null)
+            {
+                Console.WriteLine(Relacja(napis));
+            }
+            Console.WriteLine();
+        }
+    }
+}

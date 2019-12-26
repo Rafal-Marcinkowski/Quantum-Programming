@@ -1,0 +1,62 @@
+using System;
+using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
+
+namespace SPOJ_Sort1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            List<Point> list = new List<Point>();        ///Inicjacja listy obiektów, bazujących na klasie Point.
+            int t = int.Parse(Console.ReadLine());
+            for (int i = 0; i < t; i++)
+            {
+                int n = int.Parse(Console.ReadLine());
+                for (int j = 0; j < n; j++)
+                {
+                    Point p1 = new Point();
+                    p1.SetPoint();                    ///Tworzenie obiektów i dodawanie ich do listy.
+                    list.Add(p1);
+                }
+                list.Sort(new ListSorter());           ///Sortowanie listy obiektów.
+                foreach (Point p in list)                  ///Pętla pokazująca wszystkie obiekty w liście list.
+                {
+                    p.ShowPoint();
+                }
+                list.Clear();
+                Console.ReadLine();
+            }
+        }
+    }
+    class ListSorter : IComparer<Point>
+    {
+        public int Compare(Point x, Point y)
+        {
+            if (x.d > y.d)
+                return 1;                    ///Klasa sortująca w zależności od odległości punktu do środka układu wspołrzędnych.
+            else if (x.d == y.d)
+                return 0;
+            else
+                return -1;
+        }
+    }
+    class Point
+    {
+        string nazwa;
+        int x, y;
+        public double d;
+        public void SetPoint()    ///Metoda ustawiająca parametry punktu.
+        {
+            string[] napis = Console.ReadLine().Split(' ');
+            nazwa = napis[0];
+            x = int.Parse(napis[1]);
+            y = int.Parse(napis[2]);
+            d = Math.Sqrt(((x * x) + (y * y)));
+        }
+        public void ShowPoint()///Metoda wypisująca parametry punktu w konsoli.
+        {
+            Console.WriteLine("{0} {1} {2}", nazwa, x, y);
+        }
+    }
+}

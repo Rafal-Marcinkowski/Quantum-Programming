@@ -1,0 +1,33 @@
+using System;
+
+namespace SPOJ_TagiHTML
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string napis;
+            while ((napis = Console.ReadLine()) != null)
+            {
+                bool czyPojawilSieTagOtwierajacy = false;
+                for (int i = 0; i < napis.Length; i++)
+                {
+                    if (napis[i] == '<')
+                        czyPojawilSieTagOtwierajacy = true;
+                    if (napis[i] == '>')
+                        czyPojawilSieTagOtwierajacy = false;
+                    if (czyPojawilSieTagOtwierajacy == true)
+                    {
+                        string a = napis[i].ToString().ToUpper();
+                        Console.Write(a);
+                    }
+                    else
+                    {
+                        Console.Write(napis[i]);
+                    }
+                }
+                Console.WriteLine();
+            }
+        }
+    }
+}

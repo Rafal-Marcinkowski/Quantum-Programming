@@ -1,0 +1,35 @@
+using System;
+
+namespace SPOJ_String_Merge
+{
+    class Program
+    {
+        static string StringMerge(string napis1, string napis2)
+        {
+            string wynik = "";
+            int liczba1 = napis1.Length;
+            int liczba2 = napis2.Length;
+            int liczba = napis1.Length;
+            if (napis2.Length < napis1.Length)        ///Szukamy długości krótszego napisu.
+                liczba = napis2.Length;
+            int j = 0;
+            while (j < liczba)
+            {
+                wynik += napis1[j];
+                wynik += napis2[j];            ///Pętla scalająca ze sobą 2 napisy.
+                j++;
+            }
+            return wynik;
+        }
+        static void Main(string[] args)
+        {
+            int t = int.Parse(Console.ReadLine());
+            for (int i = 0; i < t; i++)
+            {
+                string[] stringi = Console.ReadLine().Split(' ');    ///Tworzymy tablicę stringów, każdy element rozdzielony jest spacją.
+                string w = StringMerge(stringi[0], stringi[1]);      ///Wywołanie funkcji scalającej 2 napisy.
+                Console.WriteLine(w);
+            }
+        }
+    }
+}

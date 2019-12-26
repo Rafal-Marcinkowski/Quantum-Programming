@@ -1,0 +1,29 @@
+using System;
+
+namespace SPOJ_Obżartuchy
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int t = int.Parse(Console.ReadLine());
+            int ileciastek = 0;
+            for (int i = 0; i < t; i++)
+            {
+                ileciastek = 0;
+                string[] napis = Console.ReadLine().Split(' ');
+                int N, M;
+                N = int.Parse(napis[0]);
+                M = int.Parse(napis[1]);
+                int[] tab = new int[N];
+                int[] tab2 = new int[N];
+                for (int m = 0; m < N; m++)
+                {
+                    tab[m] = 86400 / int.Parse(Console.ReadLine());  ///Wprowadzamy czasy jedzenia poszczególnych ciastek i od razu liczymy ile ciastek dana osoba zje w ciągu 24h.
+                    ileciastek += tab[m];               ///Sumujemy ilość zjedzonych ciastek w ciągu 24h.
+                }
+                Console.WriteLine((int)Math.Ceiling(((double)ileciastek / M)));
+            }
+        }
+    }
+}

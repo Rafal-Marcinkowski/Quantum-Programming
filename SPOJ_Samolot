@@ -1,0 +1,17 @@
+using System;
+
+namespace SPOJ_Samolot
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string[] tab = Console.ReadLine().Split(' ');
+            int n1 = int.Parse(tab[0]);
+            int k1 = int.Parse(tab[1]);
+            int n2 = int.Parse(tab[2]);
+            int k2 = int.Parse(tab[3]);
+            Console.WriteLine((n1*k1)+(n2*k2));
+        }
+    }
+}

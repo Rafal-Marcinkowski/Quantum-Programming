@@ -1,0 +1,30 @@
+using System;
+
+namespace ConsoleApp3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int t = int.Parse(Console.ReadLine());
+            for (int i = 0; i < t; i++)
+            {
+                string[] napis = Console.ReadLine().Split(' ');
+                int a = int.Parse(napis[0]);
+                int b = int.Parse(napis[1]);
+                Console.WriteLine(Nwd(a, b));
+            }
+
+        }
+         static int Nwd(int a, int b)
+        {
+            while (b!= 0)
+            {
+                int liczba = a % b;
+                a = b;
+                b = liczba;
+            }
+            return a;
+        }
+    }
+}

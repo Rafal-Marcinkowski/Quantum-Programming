@@ -1,0 +1,65 @@
+using System;
+
+namespace SPOJ_KabalistycznyZapisDaty
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string napis = Console.ReadLine();
+            int suma = 0;
+            for (int i = 0; i < napis.Length; i++)
+            {
+                #region 23xwarunek if
+                if (napis[i] == 'a')
+                    suma += 1;
+                if (napis[i] == 'b')
+                    suma += 2;
+                if (napis[i] == 'c')
+                    suma += 3;
+                if (napis[i] == 'd')
+                    suma += 4;
+                if (napis[i] == 'e')
+                    suma += 5;
+                if (napis[i] == 'f')
+                    suma += 6;
+                if (napis[i] == 'g')
+                    suma += 7;
+                if (napis[i] == 'h')
+                    suma += 8;
+                if (napis[i] == 'i')
+                    suma += 9;
+                if (napis[i] == 'k')
+                    suma += 10;
+                if (napis[i] == 'l')
+                    suma += 20;
+                if (napis[i] == 'm')
+                    suma += 30;
+                if (napis[i] == 'n')
+                    suma += 40;
+                if (napis[i] == 'o')
+                    suma += 50;
+                if (napis[i] == 'p')
+                    suma += 60;
+                if (napis[i] == 'q')
+                    suma += 70;
+                if (napis[i] == 'r')
+                    suma += 80;
+                if (napis[i] == 's')
+                    suma += 90;
+                if (napis[i] == 't')
+                    suma += 100;
+                if (napis[i] == 'v')
+                    suma += 200;
+                if (napis[i] == 'x')
+                    suma += 300;
+                if (napis[i] == 'y')
+                    suma += 400;
+                if (napis[i] == 'z')
+                    suma += 500;
+                #endregion
+            }
+            Console.WriteLine(suma);
+        }
+    }
+}

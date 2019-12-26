@@ -1,0 +1,34 @@
+using System;
+
+namespace SPOJ_TransponowanieMacierzy
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int m, n;
+            string[] tab = Console.ReadLine().Split(' ');
+            m = int.Parse(tab[0]);    ///Liczba wierszy.
+            n = int.Parse(tab[1]);   ///Liczba kolumn.
+            int[,] tab2 = new int[m,n];   ///Macierz przed transponowaniem.
+            for (int i = 0; i < m; i++)
+            {
+                string[] napis = Console.ReadLine().Split(' ');
+                for (int j = 0; j < n; j++)
+                {
+                    tab2[i, j] = int.Parse(napis[j]);    ///Zapisujemy liczby do macierzy.
+                }
+            }
+
+            Console.WriteLine();
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < m; j++)     ///Wyświetlamy transponowaną macierz.
+                {
+                    Console.Write(tab2[j, i] + " ");
+                }
+                Console.WriteLine();
+            }
+        }
+    }
+}

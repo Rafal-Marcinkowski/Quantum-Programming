@@ -1,0 +1,60 @@
+using System;
+
+namespace SPOJ_Kalkulator2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] tab = new int[10];
+            for (int i = 0; i < 10; i++)
+            {
+                tab[i] = 0;
+            }
+            string napis;
+            while ((napis = Console.ReadLine()) != null)
+            {
+                string[] tablica = napis.Split(' ');
+                int a = int.Parse(tablica[1]);
+                int b = int.Parse(tablica[2]);
+                switch (tablica[0])
+                {
+                    case "+":
+                        {
+                            Console.WriteLine((tab[a] + tab[b]));
+                            break;
+                        }
+                    case "-":
+                        {
+                            Console.WriteLine((tab[a] - tab[b]));
+                            break;
+                        }
+                    case "*":
+                        {
+                            Console.WriteLine((tab[a] * tab[b]));
+                            break;
+                        }
+                    case "/":
+                        {
+                            Console.WriteLine((tab[a] / tab[b]));
+                            break;
+                        }
+                    case "%":
+                        {
+                            Console.WriteLine((tab[a] % tab[b]));
+                            break;
+                        }
+                    case "z":
+                        {
+                            tab[a] = b;
+                            break;
+                        }
+                    default:
+                        break;
+                }
+            }
+        }
+
+
+    }
+}

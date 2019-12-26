@@ -1,0 +1,52 @@
+using System;
+
+namespace SPOJ_Kalkulator
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string tekst;
+            while ((tekst = Console.ReadLine()) != null)
+            {
+                string[] napis = tekst.Split(' ');
+                int a = int.Parse(napis[1]);
+                int b = int.Parse(napis[2]);
+                int wynik;
+                switch (napis[0])
+                {
+                    case "+":
+                        {
+                            wynik = a + b;
+                            Console.WriteLine(wynik);
+                            break;
+                        }
+                    case "-":
+                        {
+                            wynik = a - b;
+                            Console.WriteLine(wynik);
+                            break;
+                        }
+                    case "*":
+                        {
+                            wynik = a * b;
+                            Console.WriteLine(wynik);
+                            break;
+                        }
+                    case "/":
+                        {
+                            wynik = a / b;
+                            Console.WriteLine(wynik);
+                            break;
+                        }
+                    case "%":
+                        {
+                            wynik = a % b;
+                            Console.WriteLine(wynik);
+                            break;
+                        }
+                }
+            }
+        }
+    }
+}

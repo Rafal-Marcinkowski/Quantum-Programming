@@ -1,0 +1,27 @@
+using System;
+
+namespace SPOJ_ZliczanieWystąpień
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string napis;
+            while ((napis = Console.ReadLine()) != null)
+            {
+                string[] tab = napis.Split(' ');
+                int[] tablica = new int[tab.Length];
+                int a = int.Parse(tab[0]);
+                int ileRazy = 0;
+                for (int i = 2; i < tab.Length; i++)
+                {
+                    tablica[i] = int.Parse(tab[i]);
+                    if (tablica[i] == a)
+                        ileRazy++;
+                }
+                Console.WriteLine(ileRazy);
+                ileRazy = 0;
+            }
+        }
+    }
+}

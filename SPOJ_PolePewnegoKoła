@@ -1,0 +1,16 @@
+using System;
+
+namespace SPOJ_PolePewnegoKoła
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string [] liczby = Console.ReadLine().Split(' ');
+            double r = double.Parse(liczby[0]);         
+            double d = (double.Parse(liczby[1]))/2;
+            double h = Math.Sqrt(Math.Pow(r, 2) - Math.Pow(d, 2));
+            Console.WriteLine(Math.Pow(h,2)*Math.PI);
+        }
+    }
+}

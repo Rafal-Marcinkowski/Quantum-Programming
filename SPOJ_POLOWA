@@ -1,0 +1,21 @@
+using System;
+
+namespace SPOJ_POLOWA
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int t = int.Parse(Console.ReadLine());
+            for (int i = 0; i < t; i++)
+            {
+                string napis = Console.ReadLine();
+                for (int j = 0; j < napis.Length/2; j++)
+                {
+                    Console.Write(napis[j]);
+                }
+                Console.WriteLine();
+            }
+        }
+    }
+}

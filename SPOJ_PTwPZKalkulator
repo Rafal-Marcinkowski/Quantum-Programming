@@ -1,0 +1,51 @@
+using System;
+
+namespace SPOJ_PTwPZKalkulator
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int t = int.Parse(Console.ReadLine());
+            {
+
+                for (int i = 0; i < t; i++)
+                {
+                    string napis;
+                    int dodajLubOdejmij = 2;
+                    while ((napis = Console.ReadLine()) != null)
+                    {
+                        int suma = 0;
+                        if (napis[0] != '+' && napis[0] != '-')
+                            suma += int.Parse(napis[0].ToString());
+                        else if (napis[0] == '+')
+                            dodajLubOdejmij = 1;
+                        else
+                            dodajLubOdejmij = 0;
+                        for (int j = 1; j < napis.Length; j++)
+                        {
+                            if (napis[j] == '+')
+                            {
+                                dodajLubOdejmij = 1;
+                                continue;
+                            }
+                            if (napis[j] == '-')
+                            {
+                                dodajLubOdejmij = 0;
+                                continue;
+                            }
+                            else
+                            {
+                                if (dodajLubOdejmij == 1)
+                                    suma += int.Parse(napis[j].ToString());
+                                else
+                                    suma -= int.Parse(napis[j].ToString());
+                            }
+                        }
+                        Console.WriteLine(suma);
+                    }
+                }
+            }
+        }
+    }
+}

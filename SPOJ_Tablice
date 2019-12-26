@@ -1,0 +1,28 @@
+using System;
+
+namespace SPOJ_Tablice
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int t = int.Parse(Console.ReadLine());
+            for (int i = 0; i < t; i++)
+            {
+                string[] stringi = Console.ReadLine().Split(' ');            ///Tworzymy tablicę stringów, każdy nowy element jest rozdzielony spacją.
+                int n = int.Parse(stringi[0]);
+                int[] tab = new int[n+1];
+                for (int j = 0; j < n+1; j++)
+                {
+                    tab[j] = int.Parse(stringi[j]);           ///Tworzymy tablicę liczb całkowitych na podstawie tablicy napisów.
+                }
+                Array.Reverse(tab);
+                for (int k = 0; k < tab.Length-1; k++)
+                {
+                    Console.Write(tab[k]+" ");             ///Wyświetlamy odwrócone liczby, z wyjątkiem ostatniej.
+                }
+                Console.WriteLine();
+            }
+        }
+    }
+}

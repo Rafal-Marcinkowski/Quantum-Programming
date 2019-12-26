@@ -1,0 +1,33 @@
+using System;
+
+namespace SPOJ_ParzysteNieparzyste
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int t = int.Parse(Console.ReadLine());
+            for (int i = 0; i < t; i++)
+            {
+                string[] napis = Console.ReadLine().Split(' ');
+                int n = int.Parse(napis[0]);
+                int[] tab = new int[n + 1];
+                for (int j = 0; j < tab.Length; j++)
+                {
+                    tab[j] = int.Parse(napis[j]);  ///Zamiana stringów na inty.
+                }
+                for (int z = 1; z < tab.Length; z++)  ///Wyświetlanie pierw liczb, które znajdują się na parzystych indeksach w tablicy.
+                {
+                    if (z % 2 == 0)
+                        Console.Write(tab[z] + " ");
+                }
+                for (int z = 1; z < tab.Length; z++) ///Wyświetlanie reszty liczb (znajdujących się na nieparzystych indeksach w tablicy).
+                {
+                    if (z % 2 != 0)
+                        Console.Write(tab[z] + " ");
+                }
+                Console.WriteLine();
+            }
+        }
+    }
+}

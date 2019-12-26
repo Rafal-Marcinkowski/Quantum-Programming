@@ -1,0 +1,65 @@
+using System;
+
+namespace SPOJ_Stos
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] tab = new int[10];
+            for (int z = 0; z < 10; z++)
+            {
+                tab[z] = 0;                      ///Tablica właściwych wartości w stosie.
+            }
+            int[] tab2 = new int[10];
+            for (int i = 0; i < 10; i++)
+            {
+                tab2[i] = 0;                  ///Tablica pomocnicza, sprawdzająca czy na danym indexie tab jest juz zapisana jakaś wartość.
+            }
+            string napis;
+            while ((napis = Console.ReadLine()) != null)
+            {
+                if (napis != "-")
+                {
+                    int a = int.Parse(Console.ReadLine());
+                    if (tab2[0] == 0)                      ///Jeżeli w stosie jest miejsce, dodajemy liczbę do stosu (tab).
+                    {
+                        for (int i = 9; i >= 0; i--)
+                        {
+                            if (tab2[i] == 0)
+                            {
+                                tab[i] = a;           ///Dodajemy liczbę na odpowiednie miejsce w stosie (tab).
+                                tab2[i] = 1;
+                                break;
+                            }
+                        }
+                        Console.WriteLine(":)");
+                    }
+                    else
+                        Console.WriteLine(":(");
+                }
+                else
+                {
+                    if (tab2[9] == 1)          ///Przy odejmowaniu wartości ze stosu, sprawdzamy czy na końcu stosu jest w ogóle jakaś wartośc.
+                    {
+                        for (int j = 0; j < 10; j++)
+                        {
+                            if (tab2[j] == 0)
+                                continue;
+                            else
+                            {
+                                Console.WriteLine(tab[j]);            ///Jeżeli jest, to wyświetlamy szczyt stosu.
+
+                                tab2[j] = 0;
+                                break;
+                            }
+
+                        }
+                    }
+                    else
+                        Console.WriteLine(":(");     ///Jeżeli stos jest pusty, nie możemy nic z niego wyciągnąć.
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,16 @@
+using System;
+
+namespace SPOJ_Tablica
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string []ciagLiczb = Console.ReadLine().Split(' ');
+            for (int i = ciagLiczb.Length-1; i >= 0; i--)
+            {
+                Console.Write(ciagLiczb[i]+" ");
+            }
+        }
+    }
+}
